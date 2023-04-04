@@ -29,10 +29,40 @@ console.log( prev, next )
 console.log(arrayImmagini);
 
 
- for( let i = 0; i < arrayImmagini.length; i++){
-   document.querySelector(".slider").innerHTML = `
-        <div class="item">
-            <img src=`${arrayImmagini [i]}` alt="">
-        </div>
-        `
- }
+//  for( let i = 0; i < arrayImmagini.length; i++){
+//    document.querySelector(".slider").innerHTML = `
+//         <div class="item">
+//             <img src=`${arrayImmagini [i]}` alt="">
+//         </div>
+//         `
+//  }
+
+next.addEventListener( "click", function(){
+  let attivaItem = document.querySelector(".item.active")
+  console.log(attivaItem);
+
+  let ItemDaAtivare = attivaItem.nextElementSibling
+  console.log(ItemDaAtivare);
+
+  if (attivaItem.classList.contains("last")) {
+    ItemDaAtivare = document.querySelector(".item.first")
+  }
+
+  attivaItem.classList.remove("active")
+  ItemDaAtivare.classList.add("active")
+})
+
+prev.addEventListener( "click", function(){
+  let attivaItem = document.querySelector(".item.active")
+  console.log(attivaItem);
+
+  let ItemDaAtivare = attivaItem.previousElementSibling
+  console.log(ItemDaAtivare);
+
+  if (attivaItem.classList.contains("first")) {
+    ItemDaAtivare = document.querySelector(".item.last")
+  }
+
+  attivaItem.classList.remove("active")
+  ItemDaAtivare.classList.add("active")
+})
