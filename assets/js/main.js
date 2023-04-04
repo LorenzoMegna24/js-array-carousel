@@ -16,11 +16,11 @@ Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagin
 Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
 */
 let arrayImmagini = [
-  "C:\Users\loren\Desktop\BOOLEAN\js-array-carousel\assets\img\01.webp",
-  "C:\Users\loren\Desktop\BOOLEAN\js-array-carousel\assets\img\02.webp",
-  "C:\Users\loren\Desktop\BOOLEAN\js-array-carousel\assets\img\03.webp",
-  "C:\Users\loren\Desktop\BOOLEAN\js-array-carousel\assets\img\04.webp",
-  "C:\Users\loren\Desktop\BOOLEAN\js-array-carousel\assets\img\05.webp"
+  "assets/img/01.webp",
+  "assets/img/02.webp",
+  "assets/img/03.webp",
+  "assets/img/04.webp",
+  "assets/img/05.webp"
 ]
 const prev = document.querySelector(".prev")
 const next = document.querySelector(".next")
@@ -29,13 +29,23 @@ console.log( prev, next )
 console.log(arrayImmagini);
 
 
-//  for( let i = 0; i < arrayImmagini.length; i++){
-//    document.querySelector(".slider").innerHTML = `
-//         <div class="item">
-//             <img src=`${arrayImmagini [i]}` alt="">
-//         </div>
-//         `
-//  }
+  for( let i = 0; i < arrayImmagini.length; i++){
+    console.log( arrayImmagini [i] )
+    let immagine = ( arrayImmagini[i] )
+    
+    document.querySelector(".items").innerHTML += `
+    <div class="item">
+      <img src="${immagine}" alt="">
+    </div>`
+
+    if ( i == 1 ) {
+      document.querySelector(".item").classList.add("first", "active")
+    }
+    if ( i == 5 ) {
+      document.querySelector(".item").classList.add("last")
+    }
+
+  }
 
 next.addEventListener( "click", function(){
   let attivaItem = document.querySelector(".item.active")
