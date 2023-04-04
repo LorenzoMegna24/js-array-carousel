@@ -1,13 +1,17 @@
 .container{
   border: 1px dashed red;
   width: 80%;
-  margin: 0 auto;
-}
-
-.slider{
+  margin: 0 auto;  
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+}
+.item img{
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .item.active{
